@@ -41,10 +41,10 @@ export default function AboutSection({title, subtitle, image1, image2}: AboutSec
         {/* Right: Images */}
         <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8 w-full justify-center">
           <div className="relative rounded-lg overflow-hidden w-full lg:w-[65%] h-[180px] md:h-[350px] max-lg:hidden">
-            <Image src={image1} alt="Mandate 1" fill className="object-fit" />
+            <Image src={image1} alt="Mandate 1" fill className="object-cover h-full w-full object-[50%_20%]" />
           </div>
           <div className="relative rounded-lg overflow-hidden w-full lg:w-[30%] h-[250px] md:h-[450px] lg:h-[350px] flex items-center justify-center">
-            <Image src={image2} alt="Mandate 2" fill className="object-fit" />
+            <Image src={image2} alt="Mandate 2" fill className="object-cover h-full w-full" />
           </div>
         </div>
 
