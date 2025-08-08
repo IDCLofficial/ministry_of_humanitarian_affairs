@@ -23,7 +23,7 @@ export default function Home() {
         image2="/images/humanitarianActivities.jpg"
       />
       <AboutCommisioner 
-        imgSrc="/images/user.png" 
+        imgSrc="/images/commissioner.png" 
         title="About The Commissioner" 
         description="Honourable Chief Kenneth Okafor, a respected leader and native of Imo State, currently serves as the Commissioner for Humanitarian Affairs, Disaster Management and Social Development. Before his appointment to this role in March 2025 by Governor Hope Uzodimma, he served as the Special Adviser on Transport, where he contributed significantly to transport coordination and public service delivery in the state. As Commissioner for Humanitarian Affairs, Chief Okafor has demonstrated a strong commitment to supporting vulnerable populations and strengthening social safety nets across Imo State. Under his leadership, the ministry has expanded emergency response capacity, enhanced social protection programs, and initiated targeted interventions for internally displaced persons, women, and youth."
       />

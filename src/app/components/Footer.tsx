@@ -1,5 +1,8 @@
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 const info = {
     logo: "/logo.png",
@@ -43,7 +46,7 @@ const info = {
     ],
     contact: [
         {
-            label: "+234 812 345 6789",
+            label: "no informtion",
             href: "/"
         },
         {
@@ -58,6 +61,10 @@ const info = {
 }
 
 export default function Footer() {
+    const [email, setEmail] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState("");
     return (
         <footer className="w-full bg-white pt-10 px-4 lg:px-18">
             <div className="mx-auto px-4 flex flex-col md:flex-row justify-between gap-8 pb-8">
@@ -86,14 +93,57 @@ export default function Footer() {
                 {/* Newsletter and Contact */}
                 <div className="flex-1">
                     <h4 className="font-semibold text-gray-900 mb-3">{info.newsletter[0].label}</h4>
-                    <form className="flex mb-3">
+                    <form
+                        className="flex mb-3"
+                        onSubmit={async (e) => {
+                            e.preventDefault();
+                            setError("");
+                            setSuccess(false);
+                            if (!email) {
+                                setError("Please enter a valid email address.");
+                                return;
+                            }
+                            setLoading(true);
+                            try {
+                                // Simulate API call
+                                await new Promise((resolve) => setTimeout(resolve, 1500));
+                                setSuccess(true);
+                                setEmail("");
+                            } catch (err) {
+                                setError("Subscription failed. Please try again.");
+                            } finally {
+                                setLoading(false);
+                            }
+                        }}
+                    >
                         <input
-                        type="email"
-                        placeholder="Myemail@gmail.com"
-                        className="border border-gray-300 rounded-l px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Myemail@gmail.com"
+                            className="border border-gray-300 rounded-l px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                            disabled={loading}
                         />
-                        <button type="submit" className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-r text-sm font-medium">{info.newsletter[1].label}</button>
+                        <button
+                            type="submit"
+                            className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-r text-sm font-medium flex items-center justify-center min-w-[90px]"
+                            disabled={loading}
+                        >
+                            {loading ? (
+                                <svg className="animate-spin h-4 w-4 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                                </svg>
+                            ) : null}
+                            {loading ? "Loading..." : info.newsletter[1].label}
+                        </button>
                     </form>
+                    {success && (
+                        <div className="text-green-600 text-sm mb-2">Thank you for subscribing!</div>
+                    )}
+                    {error && (
+                        <div className="text-red-600 text-sm mb-2">{error}</div>
+                    )}
                     <div className="text-xs text-gray-700 space-y-1 flex flex-col">
                         {info.contact.map((item) => (
                             <Link href={item.href} key={item.label}>{item.label}</Link>
