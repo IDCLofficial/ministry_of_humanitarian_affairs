@@ -1,5 +1,8 @@
-import React from "react";
+"use client"
+
+import React, { useState, useMemo } from "react";
 import MediaGalleryCard from "./MediaGalleryCard";
+import SearchBar from "../components/SearchBar";
 
 interface MediaItem {
   image: string;
@@ -12,7 +15,17 @@ interface MediaGalleryGridProps {
 }
 
 const MediaGalleryGrid: React.FC<MediaGalleryGridProps> = ({ items }) => {
-  if(items.length === 0) {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredItems = useMemo(() => {
+    if (!searchQuery.trim()) return items;
+    const query = searchQuery.toLowerCase();
+    return items.filter(item => 
+      item.title.toLowerCase().includes(query)
+    );
+  }, [items, searchQuery]);
+
+  if(filteredItems.length === 0) {
     return (
       <div className="w-full flex flex-col items-center justify-center">
         <h1 className="text-2xl font-medium">No media items found</h1>
@@ -20,11 +33,19 @@ const MediaGalleryGrid: React.FC<MediaGalleryGridProps> = ({ items }) => {
     )
   }
   return (
-    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {items.map((item, idx) => (
-        <MediaGalleryCard key={idx} image={item.image} title={item.title} isVideo={item.isVideo} />
-      ))}
-    </div>
+    <>
+      <SearchBar
+        placeholder="Search media..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        onSearch={() => {}}
+      />
+      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {filteredItems.map((item, idx) => (
+          <MediaGalleryCard key={idx} image={item.image} title={item.title} isVideo={item.isVideo} />
+        ))}
+      </div>
+    </>
   );
 };
 

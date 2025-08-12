@@ -19,7 +19,7 @@ export async function generateStaticParams() {
 
 export default async function NewsDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const news = newsList.find(item => slugify(item.title) === slug);
+  const news = newsList.find(item => item.title === decodeURIComponent(slug));
 
   if (!news) {
     return (
@@ -41,7 +41,7 @@ export default async function NewsDetailPage({ params }: { params: Promise<{ slu
           {/* Title & Meta */}
           <div className="relative z-10 w-full flex justify-center pb-2">
             <div className="w-full max-w-3xl rounded-xl overflow-hidden shadow-lg">
-              <Image src={news.img} alt={news.title} width={900} height={400} className="object-cover w-full h-[260px] md:h-[320px]" />
+              <Image src={news.img} alt={news.title} width={900} height={400} className="object-cover w-full h-full" />
             </div>
           </div>
           <div className="text-center">

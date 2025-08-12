@@ -1,16 +1,26 @@
 import React from "react";
 import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
-const contactInfo = {
+type contactInfo = {
+  address:string,
+  email:string,
+  phone:string,
+  socials:{
+    icon:React.ReactNode,
+    href:string
+  }[]
+}
+
+const contactInfo:contactInfo = {
   address: "Ministry Address: Block 10, State Secretariat Complex, Owerri, Imo State",
   email: "humanitarian@imostate.gov.ng",
   phone: "no information",
 
   socials: [
-    { icon: <FaFacebookF />, href: "https://www.facebook.com/Imotcac/" },
-    { icon: <FaTwitter />, href: "#" },
-    { icon: <FaInstagram />, href: "#" },
-    { icon: <FaLinkedinIn />, href: "#" },
+    // { icon: <FaFacebookF />, href: "https://www.facebook.com/Imotcac/" },
+    // { icon: <FaTwitter />, href: "#" },
+    // { icon: <FaInstagram />, href: "#" },
+    // { icon: <FaLinkedinIn />, href: "#" },
   ],
 };
 
