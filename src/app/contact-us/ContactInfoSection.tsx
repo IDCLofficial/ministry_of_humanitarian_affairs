@@ -12,9 +12,9 @@ type contactInfo = {
 }
 
 const contactInfo:contactInfo = {
-  address: "Ministry Address: Block 10, State Secretariat Complex, Owerri, Imo State",
+  address: "Block 10, State Secretariat Complex, Owerri, Imo State",
   email: "humanitarian@imostate.gov.ng",
-  phone: "no information",
+  phone: "07000000000",
 
   socials: [
     // { icon: <FaFacebookF />, href: "https://www.facebook.com/Imotcac/" },

@@ -18,8 +18,8 @@ const info = {
             href: "/news"
         },
         {
-            label: "Units",     
-            href: "/units"
+            label: "Departments",     
+            href: "/departments"
         },
         {
             label: "Events",
@@ -46,12 +46,12 @@ const info = {
     ],
     contact: [
         {
-            label: "no informtion",
-            href: "/"
+            label: "Phone: 07000000000",
+            href: "tel:07000000000"
         },
         {
-            label: "humanitarian@imostate.gov.ng",
-            href: "/"
+            label: "Email: humanitarian@imostate.gov.ng",
+            href: "mailto:humanitarian@imostate.gov.ng"
         },  
         {
             label: "Ministry Address: Block 10, State Secretariat Complex, Owerri, Imo State",

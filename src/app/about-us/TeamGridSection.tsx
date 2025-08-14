@@ -18,8 +18,8 @@ const TeamGridSection: React.FC<TeamGridSectionProps> = ({ members }) => {
       <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10" id="team">
         {members.map((member, idx) => (
           <div key={idx} className="w-[200px] flex flex-col rounded-xl">
-            <div className="w-full mb-2 md:mb-4 relative">
-              <Image src={member.imgSrc} alt={member.name} width={100} height={100} className="w-full h-[180px] md:h-[200px] object-cover rounded-xl" />
+            <div className="w-full mb-2 md:mb-4 h-[200px] relative">
+              <Image src={member.imgSrc} alt={member.name} width={100} height={100} className="w-full h-full object-cover object-[50%_30%] rounded-xl" />
             </div>
             <h3 className="text-xl md:text-lg font-semibold text-[#232c39] mb-1">{member.name}</h3>
             <span className="text-green-600 text-xs md:text-sm font-medium">{member.position}</span>

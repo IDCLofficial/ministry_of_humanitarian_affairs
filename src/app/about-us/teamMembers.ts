@@ -5,8 +5,8 @@ export const teamMembers = [
         imgSrc: "/images/commissioner.png" // Use a placeholder or real image if available
     },
     {
-        name: "No information",
+        name: "Ven Onyinyeoma I.G Onyeagocha Ph.D JP",
         position: "Permanent Secretary",
-        imgSrc: "/images/permSec.png" 
+        imgSrc: "/images/permSec.jpg" 
     }
 ];
