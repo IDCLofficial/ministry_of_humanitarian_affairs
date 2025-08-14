@@ -46,15 +46,15 @@ const info = {
     ],
     contact: [
         {
-            label: "Phone: 07000000000",
+            label: "07000000000",
             href: "tel:07000000000"
         },
         {
-            label: "Email: humanitarian@imostate.gov.ng",
+            label: "humanitarian@imostate.gov.ng",
             href: "mailto:humanitarian@imostate.gov.ng"
         },  
         {
-            label: "Ministry Address: Block 10, State Secretariat Complex, Owerri, Imo State",
+            label: "Block 10, State Secretariat Complex, Owerri, Imo State",
             href: "/"
         },
     ]
