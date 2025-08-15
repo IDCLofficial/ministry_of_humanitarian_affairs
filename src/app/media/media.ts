@@ -1,23 +1,6 @@
-interface MediaItem {
-    image: string;
-    title: string;
-    isVideo?: boolean;
-}
+import { contentfulService } from "../../../lib/contentful";
 
-export const mediaItems: MediaItem[] = [
-    {
-        image: "/images/media/governor.jpg",
-        title:"The Governor",
-        isVideo: false
-    },
-    {
-        image:"/images/media/flood-intervention.jpg",
-        title:"Flood Intervention in Oguta LGA",
-        isVideo: false
-    },
-    {
-        image:"/images/media/iom.jpeg",
-        title:"The IOM team",
-        isVideo: false
-    }
-];
+export default async function getMedia() {
+    const media = await contentfulService.getMediaByMinistryId(process.env.NEXT_PUBLIC_CONTENTFUL_MINISTRY_ID!)
+    return media;
+}

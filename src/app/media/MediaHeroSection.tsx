@@ -8,11 +8,11 @@ import { Title } from "../components/Title";
 
 interface MediaHeroSectionProps {
   title: string;
-  subtitle?: string;
-  backgroundImage?: string;
+  subtitle: string;
+  backgroundImage: string;
 }
 
-const MediaHeroSection: React.FC<MediaHeroSectionProps> = ({ title }) => {
+const MediaHeroSection: React.FC<MediaHeroSectionProps> = ({ title, subtitle }) => {
   return (
     <SubsequentHero
       className={`bg-[url('/images/gradient.png')] bg-cover bg-center`}
@@ -22,7 +22,7 @@ const MediaHeroSection: React.FC<MediaHeroSectionProps> = ({ title }) => {
       </div>
       <div className="relative z-10 flex flex-col items-center justify-center gap-2">
         <motion.h1
-          className="text-white text-3xl md:text-5xl font-bold drop-shadow-lg"
+          className="text-white text-3xl md:4xl lg:text-5xl font-bold drop-shadow-lg"
           initial={{ opacity: 1 }}
           animate={{}}
         >

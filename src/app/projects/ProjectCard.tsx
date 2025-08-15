@@ -4,15 +4,13 @@ interface ProjectCardProps {
   title: string;
   description: string;
   image: string;
-  partners?: {
-    partner: string;
+  sponsors?: {
+    name: string;
     logo: string;
   }[];
-  cta?:string;
-  location?:string
 }
 
-export default function ProjectCard({ title, description, image, partners }: ProjectCardProps) {
+export default function ProjectCard({ title, description, image, sponsors }: ProjectCardProps ) {
   return (  
     <section className="w-full py-10 md:py-16 bg-white flex flex-col md:flex-row md:items-center gap-8 md:gap-22 px-4 md:px-20">
       <div className="w-full relative rounded-lg overflow-hidden md:hidden"> 
@@ -39,8 +37,8 @@ export default function ProjectCard({ title, description, image, partners }: Pro
           </div>
         </div> */}
         <div className="flex flex-wrap gap-4 md:gap-6 mt-6 items-center justify-start">
-          {partners && partners.map((partner)=>(
-            <Image key={partner.partner} src={`/images/${partner.logo}`} alt={partner.partner} width={70} height={30} />
+          {sponsors && sponsors.map((sponsor)=>(
+            <Image key={sponsor.name} src={sponsor.logo} alt={sponsor.name} width={70} height={30} />
           ))}
         </div>
       </div>

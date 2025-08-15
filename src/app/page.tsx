@@ -7,8 +7,12 @@ import CTASection from "@/app/components/CTASection";
 import Footer from "@/app/components/Footer";
 import FeaturedInitiatives from "./components/FeaturedInitiatives";
 import FeaturedPartners from "./components/FeaturedPartners";
+import { getProject } from "./projects/projects";
+import { Project } from "../../lib/types";
 
-export default function Home() {
+export default async function Home() {
+  const projects = await getProject()
+  const projectList = projects
   return (
     <div className="h-screen w-full">
       <Hero
@@ -28,7 +32,7 @@ export default function Home() {
         description="Honourable Chief Kenneth Okafor, a respected leader and native of Imo State, currently serves as the Commissioner for Humanitarian Affairs, Disaster Management and Social Development. Before his appointment to this role in March 2025 by Governor Hope Uzodimma, he served as the Special Adviser on Transport, where he contributed significantly to transport coordination and public service delivery in the state. As Commissioner for Humanitarian Affairs, Chief Okafor has demonstrated a strong commitment to supporting vulnerable populations and strengthening social safety nets across Imo State. Under his leadership, the ministry has expanded emergency response capacity, enhanced social protection programs, and initiated targeted interventions for internally displaced persons, women, and youth."
       />
       <section className="w-full flex flex-col gap-4">
-        <FeaturedInitiatives />
+        <FeaturedInitiatives projects = {projectList as unknown as Project[]}/>
         <FeaturedPartners />
         <QuickLinks />
         {/* <Advertisement /> */}

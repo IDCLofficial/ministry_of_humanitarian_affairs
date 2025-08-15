@@ -1,76 +1,71 @@
 "use client"
-
-import React, { useState, useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import MediaGalleryCard from "./MediaGalleryCard";
+import { Media } from "../../../lib/types";
 import SearchBar from "../components/SearchBar";
 import ImageViewer from "./ImageViewer";
 
-interface MediaItem {
-  image: string;
-  title: string;
-  isVideo?: boolean;
-}
-
 interface MediaGalleryGridProps {
-  items: MediaItem[];
+  items: Media[];
 }
 
 const MediaGalleryGrid: React.FC<MediaGalleryGridProps> = ({ items }) => {
-  const [searchQuery, setSearchQuery] = useState("");
+console.log(items)
+  const [query, setQuery] = useState("");
   const [viewerOpen, setViewerOpen] = useState(false);
-  const [viewerSrc, setViewerSrc] = useState<string | null>(null);
+  const [viewerSrc, setViewerSrc] = useState<string>("");
   const [viewerAlt, setViewerAlt] = useState<string>("");
 
+  const openViewer = (src: string, alt: string) => {
+    setViewerSrc(src);
+    setViewerAlt(alt);
+    setViewerOpen(true);
+  };
   const filteredItems = useMemo(() => {
-    if (!searchQuery.trim()) return items;
-    const query = searchQuery.toLowerCase();
-    return items.filter(item => 
-      item.title.toLowerCase().includes(query)
-    );
-  }, [items, searchQuery]);
-
-  if(filteredItems.length === 0) {
-    return (
-      <div className="w-full flex flex-col items-center justify-center">
-        <h1 className="text-2xl font-medium">No media items found</h1>
-      </div>
-    )
-  }
+    const q = query.trim().toLowerCase();
+    if (!q) return items;
+    return items.filter((item) => {
+      const title = item?.fields?.title ?? "";
+      return String(title).toLowerCase().includes(q);
+    });
+  }, [items, query]);
   return (
     <>
       <SearchBar
-        placeholder="Search media..."
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        onSearch={() => {}}
+        placeholder="Search"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        onSearch={(e) => e.preventDefault()}
       />
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {filteredItems.map((item, idx) => (
-          <MediaGalleryCard
-            key={idx}
-            image={item.image}
-            title={item.title}
-            isVideo={item.isVideo}
-            onClick={!item.isVideo ? () => {
-              setViewerSrc(item.image);
-              setViewerAlt(item.title);
-              setViewerOpen(true);
-            } : undefined}
-          />
-        ))}
-      </div>
+      {filteredItems.length === 0 ? (
+        <div className="w-full flex flex-col items-center justify-center py-8">
+          <h1 className="text-2xl font-medium">No media items found</h1>
+        </div>
+      ) : (
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredItems.map((item, idx) => (
+            <MediaGalleryCard
+              key={idx}
+              image={`https:${item.fields.img.fields.file.url}`}
+              title={item.fields.title}
+              isVideo={item.fields.img.isVideo}
+              onClick={() => {
+                if (!item.fields.img.isVideo) {
+                  openViewer(`https:${item.fields.img.fields.file.url}`, item.fields.title);
+                }
+              }}
+            />
+          ))}
+        </div>
+      )}
       <ImageViewer
-        isOpen={viewerOpen}
+        open={viewerOpen}
         src={viewerSrc}
         alt={viewerAlt}
-        onClose={() => {
-          setViewerOpen(false);
-          setViewerSrc(null);
-          setViewerAlt("");
-        }}
+        onClose={() => setViewerOpen(false)}
       />
     </>
   );
 };
 
-export default MediaGalleryGrid; 
+export default MediaGalleryGrid;

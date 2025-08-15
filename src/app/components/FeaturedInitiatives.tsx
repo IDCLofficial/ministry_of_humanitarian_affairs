@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { AppLink } from "./AppLink";
-import { projects } from "../projects/projects";
 import {motion} from 'framer-motion'
+import { Project } from "../../../lib/types";
 
-export default function FeaturedInitiatives() {
+export default function FeaturedInitiatives({projects}:{projects:Project[]}) {
   return (
     <section className="w-full p-4 md:p-8 py-10 md:py-16 bg-white flex flex-col items-center gap-8">
       <motion.h2 
@@ -23,13 +23,13 @@ export default function FeaturedInitiatives() {
         className="w-full mx-auto flex flex-col lg:flex-row justify-center gap-6 md:gap-8 px-0 md:px-4"
       >
         {projects?.slice(0, 4).map((project) => (
-          <div key={project.title} className="bg-white flex flex-col items-center h-full relative cursor-pointer hover:scale-105 transition-all duration-300">
+          <div key={project.fields.projectTitle} className="bg-white flex flex-col items-center h-full relative cursor-pointer hover:scale-105 transition-all duration-300">
             <div className="relative w-full h-[140px] md:h-[200px] z-0">
-              <Image src={project.image} alt={project.title} fill className="object-cover" />
+              <Image src={`https:${project.fields.projectImage?.fields.file.url}`} alt={project.fields.projectTitle} fill className="object-cover" />
             </div>
             <div className="w-full flex-1 flex flex-col justify-between md:items-center p-2 md:p-4 bg-white mx-auto shadow-md">
                 <div>
-                    <h3 className={`text-dark-secondary text-base font-bold mb-2`}>{project.title}</h3>
+                    <h3 className={`text-dark-secondary text-base font-bold mb-2`}>{project.fields.projectTitle}</h3>
                 </div>
             </div>
           </div>
