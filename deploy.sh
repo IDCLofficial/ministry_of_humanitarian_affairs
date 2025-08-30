@@ -12,8 +12,9 @@ export NEXT_PUBLIC_MINISTRY_ID=3AVAM45hTT76Kk9Yb5vyUh
 # Set Node.js memory options
 export NODE_OPTIONS="--max-old-space-size=2048"
 
-# Install dependencies
-echo "Installing dependencies..."
+# Clean install dependencies
+echo "Cleaning and installing dependencies..."
+rm -rf node_modules package-lock.json
 npm install
 
 # Build the application
