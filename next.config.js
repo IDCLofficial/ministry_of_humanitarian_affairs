@@ -5,8 +5,6 @@ const nextConfig = {
   
   // Reduce memory usage during build
   experimental: {
-    // Enable SWC minification for better performance
-    swcMinify: true,
     // Reduce memory usage
     workerThreads: false,
     // Optimize bundle size
@@ -59,6 +57,12 @@ const nextConfig = {
   // Optimize for production
   poweredByHeader: false,
   generateEtags: false,
+  
+  // Reduce memory usage during build
+  output: 'standalone',
+  
+  // Disable source maps to save memory
+  productionBrowserSourceMaps: false,
 };
 
 module.exports = nextConfig;
