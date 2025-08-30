@@ -27,7 +27,7 @@ npm install --production=false --no-audit --no-fund --prefer-offline --no-option
 
 # Build the application
 echo "Building application..."
-npm run build
+npm build
 
 # Reload PM2
 echo "Reloading PM2..."
