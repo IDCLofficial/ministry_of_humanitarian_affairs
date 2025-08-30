@@ -3,12 +3,10 @@ const nextConfig = {
   // Optimize for production builds
   swcMinify: true,
   
-  // Reduce memory usage during build
+  // Minimal experimental features to reduce memory usage
   experimental: {
     // Reduce memory usage
     workerThreads: false,
-    // Optimize bundle size
-    optimizeCss: true,
   },
   
   // Optimize images
@@ -16,7 +14,7 @@ const nextConfig = {
     formats: ['image/webp', 'image/avif'],
   },
   
-  // Reduce bundle size
+  // Minimal webpack config to reduce memory usage
   webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.fallback = {
@@ -26,28 +24,6 @@ const nextConfig = {
         tls: false,
       };
     }
-    
-    // Optimize for memory usage
-    config.optimization = {
-      ...config.optimization,
-      splitChunks: {
-        chunks: 'all',
-        cacheGroups: {
-          default: {
-            minChunks: 2,
-            priority: -20,
-            reuseExistingChunk: true,
-          },
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            priority: -10,
-            chunks: 'all',
-          },
-        },
-      },
-    };
-    
     return config;
   },
   
