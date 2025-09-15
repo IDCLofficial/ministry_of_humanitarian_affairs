@@ -2,7 +2,7 @@
 service: ministry_of_humanitarian_affairs
 
 # Name of the container image.
-image: idclofficial/ministry_of_finance_and_economic_development
+image: idclofficial/ministry_of_humanitarian_affairs
 
 # Deploy to these servers.
 servers:
