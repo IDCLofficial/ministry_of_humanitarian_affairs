@@ -18,14 +18,14 @@ export default function TourismSites() {
               <Image src={site.img} alt={site.title} fill className="object-cover" />
             </div>
             <div className="p-4 md:p-5 flex-1 flex flex-col">
-              <h3 className="text-dark-secondary text-base md:text-[15px] font-bold text-gray-900 mb-2 uppercase leading-snug">{site.title}</h3>
-              <p className="text-dark-primary-body text-gray-700 text-base md:text-sm mb-2 md:mb-4 max-w-[98%] line-clamp-3 overflow-hidden text-ellipsis">{site.desc}</p>
+              <h3 className="text-base md:text-[15px] font-bold text-gray-900 mb-2 uppercase leading-snug">{site.title}</h3>
+              <p className="text-gray-700 text-base md:text-sm mb-2 md:mb-4 max-w-[98%] line-clamp-3 overflow-hidden text-ellipsis">{site.desc}</p>
             </div>
           </Link>
         ))}
       </div>
       <div className="flex justify-center">
-        <AppLink href="/news" label="Explore More" variant="primary" className="border border-1 border-primary-green text-[14px] px-[2rem] py-[12px] rounded-[3.4px] font-medium hover:bg-primary-green/80 
+        <AppLink href="/news" label="Explore More" variant="primary" className="border-1 border-primary-green text-[14px] px-[2rem] py-[12px] rounded-[3.4px] font-medium hover:bg-primary-green/80 
         hover:text-white transition-all duration-300"/>
       </div>
     </section>
