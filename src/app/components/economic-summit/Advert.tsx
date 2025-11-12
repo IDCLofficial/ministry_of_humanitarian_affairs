@@ -45,7 +45,7 @@ function Advert() {
                     <div className="md:w-1/2">
                     <h2 className="text-3xl md:text-4xl font-bold mb-6">Imo State Economic & Investment Summit 2025</h2>
                     <p className="mb-6 leading-relaxed">
-                        On December 4–5, Imo State will host a powerful gathering of leaders, investors, and visionaries ready to unlock new opportunities for growth and innovation.
+                        On December 4<sup>th</sup>&minus;5<sup>th</sup>, Imo State will host a powerful gathering of leaders, investors, and visionaries ready to unlock new opportunities for growth and innovation.
                     </p>
                     <p className="mb-8 leading-relaxed">
                         From digital transformation to agriculture, education, energy, and youth empowerment, this summit is where ideas meet investment and where the future of Imo&apos;s economy takes shape.
@@ -58,17 +58,13 @@ function Advert() {
                         </div>
                         <div className="flex items-center gap-3">
                         <span className="text-yellow-400">📅</span>
-                        <span>Dec 4–5, 2025</span>
+                        <span>Dec 4<sup>th</sup>&minus;5<sup>th</sup>, 2025</span>
                         </div>
                         <div className="flex items-center gap-3">
                         <span className="text-yellow-400">📩</span>
                         <a href="mailto:info@imoeconomicsummit.com" className="hover:underline">info@imoeconomicsummit.com</a>
                         </div>
                     </div>
-                    
-                    <button className="bg-yellow-500 hover:bg-yellow-400 text-blue-900 font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 text-lg">
-                        Register Now
-                    </button>
                     </div>
                     <div className="h-full w-[400px] mt-6 md:mt-0">
                         <div className="relative h-full w-full rounded-lg overflow-hidden">
