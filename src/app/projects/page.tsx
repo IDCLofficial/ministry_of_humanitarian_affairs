@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import CTASection from "../components/CTASection";
 import ProjectsSection from "./ProjectsSection";
 import { getProject } from "./projects";
-import { Project, ProjectsResponse } from "../../../lib/types";
+import { Project } from "../../../lib/types";
 
 export default async function ProjectsPage() {
   const projects = await getProject()

@@ -112,17 +112,17 @@ class ContentfulService {
         
       });
 
-      const result = response.items.map((i)=>{
-        return {
-          title: i.fields.title,
-          img: i.fields.img,
-          isVideo: i.fields.isVideo,
-          ministry: i.fields.ministry,
-          id: i.sys.id,
-          ministryId: i.fields.ministry,
-          i
-        }
-      })
+      // const result = response.items.map((i)=>{
+      //   return {
+      //     title: i.fields.title,
+      //     img: i.fields.img,
+      //     isVideo: i.fields.isVideo,
+      //     ministry: i.fields.ministry,
+      //     id: i.sys.id,
+      //     ministryId: i.fields.ministry,
+      //     i
+      //   }
+      // })
       return response.items as unknown as Media || null;
     } catch (error) {
       console.error('Error fetching media by ministry id:', error);

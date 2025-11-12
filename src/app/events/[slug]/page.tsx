@@ -1,5 +1,4 @@
 import Image from "next/image";
-import ReadySection from "../../news/ReadySection";
 import Footer from "../../components/Footer";
 import getEvents from "../eventsList";
 import { Events } from "../../../../lib/types";

@@ -33,6 +33,7 @@ const ContactFormSection = () => {
           setForm({ name: "", email: "", message: "" });
         } catch (err) {
           setError("Submission failed. Please try again.");
+          throw new Error(`${err}`)
         } finally {
           setLoading(false);
         }

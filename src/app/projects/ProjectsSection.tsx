@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import ProjectCard from "./ProjectCard";
-import { Project, ProjectsResponse} from "../../../lib/types";
+import { Project } from "../../../lib/types";
 
 
 const PROJECTS_PER_PAGE = 5;

@@ -37,7 +37,7 @@ function Advert() {
             <div className="bg-white text-black rounded-lg shadow-2xl md:w-[80%] w-full mx-auto overflow-hidden">
                 <div className='w-full h-1.5 bg-gray-100'>
                     <div 
-                        className="h-full bg-yellow-500 transition-all duration-300 ease-linear"
+                        className="h-full bg-green-500 transition-all duration-300 ease-linear"
                         style={{ width: `${width}%` }}
                     ></div>
                 </div>
@@ -78,7 +78,7 @@ function Advert() {
                             />
                         </div>
                         <p className="text-sm text-gray-600 mt-2 text-center">
-                            Join us in shaping the future of Imo State's economy
+                            Join us in shaping the future of Imo State&apos;s economy
                         </p>
                     </div>
                 </div>

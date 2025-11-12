@@ -111,6 +111,7 @@ export default function Footer() {
                                 setEmail("");
                             } catch (err) {
                                 setError("Subscription failed. Please try again.");
+                                throw new Error(`${err}`)
                             } finally {
                                 setLoading(false);
                             }

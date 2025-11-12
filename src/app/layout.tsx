@@ -3,7 +3,6 @@ export const dynamic = "force-dynamic"
 import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "@/app/components/Navbar";
-import PageTransitionWrapper from "@/app/components/PageTransitionWrapper";
 
 const satoshiFont = localFont({
   src: [
