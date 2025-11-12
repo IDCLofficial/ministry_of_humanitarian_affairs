@@ -38,7 +38,7 @@ export const Hero = ({title, caption, subtitle}: HeroProps) => {
     const { bgImage } = heroImages[current];
 
     return(
-        <div className={`h-screen px-4 md:px-[3rem] flex flex-col justify-center bg-cover bg-center overflow-hidden`}>
+        <div className={`h-[100dvh] px-4 md:px-[3rem] flex flex-col justify-center bg-cover bg-center overflow-hidden`}>
             <motion.img
                 key={bgImage}
                 src={bgImage}
@@ -46,7 +46,7 @@ export const Hero = ({title, caption, subtitle}: HeroProps) => {
                 width={1000}
                 height={1000}
                 className="absolute inset-0 w-full h-full object-fit z-0 object-fill"
-                initial={{ scale: .99}}
+                initial={{ scale: .999}}
                 animate={{ scale: 1}}
                 transition={{ duration: 2, ease: "easeOut" }}
             />

@@ -41,9 +41,7 @@ export default function RootLayout({
         className={`antialiased ${satoshiFont.className}`}
       >
         <Navbar />
-        <PageTransitionWrapper>
-          {children}
-        </PageTransitionWrapper>
+        {children}
       </body>
     </html>
   );

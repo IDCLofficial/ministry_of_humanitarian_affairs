@@ -9,6 +9,7 @@ import FeaturedInitiatives from "./components/FeaturedInitiatives";
 import FeaturedPartners from "./components/FeaturedPartners";
 import { getProject } from "./projects/projects";
 import { Project } from "../../lib/types";
+import Advert from "./components/economic-summit/Advert";
 
 export default async function Home() {
   const projects = await getProject()
@@ -26,6 +27,7 @@ export default async function Home() {
         image1="/images/orphanageHelp.jpg"
         image2="/images/humanitarianActivities.jpg"
       />
+      <Advert />
       <AboutCommisioner 
         imgSrc="/images/commissioner.png" 
         title="About The Commissioner" 
