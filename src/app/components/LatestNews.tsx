@@ -38,15 +38,15 @@ export default function LatestNews() {
               <Image src={item.img} alt={item.title} fill className="object-cover" />
             </div>
             <div className="p-4 md:p-5 flex-1 flex flex-col">
-              <h3 className="text-dark-secondary text-base md:text-[15px] font-bold text-gray-900 mb-2 uppercase leading-snug">{item.title}</h3>
-              <p className="text-dark-primary-body text-gray-700 text-base md:text-sm mb-2 md:mb-4">{item.desc}</p>
-              <span className="text-dark-tertiary text-xs md:text-[15px] font-bold text-gray-900 mt-auto">{item.date}</span>
+              <h3 className="text-base md:text-[15px] font-bold text-gray-900 mb-2 uppercase leading-snug">{item.title}</h3>
+              <p className="text-gray-700 text-base md:text-sm mb-2 md:mb-4">{item.desc}</p>
+              <span className=" text-xs md:text-[15px] font-bold text-gray-900 mt-auto">{item.date}</span>
             </div>
           </Link>
         ))}
       </div>
       <div className="flex justify-center">
-        <AppLink href="/news" label="See More" variant="primary" className="border border-1 border-primary-green text-[14px] px-[2rem] py-[12px] rounded-[3.4px] font-medium hover:bg-primary-green/80 
+        <AppLink href="/news" label="See More" variant="primary" className="border-1 border-primary-green text-[14px] px-[2rem] py-[12px] rounded-[3.4px] font-medium hover:bg-primary-green/80 
         hover:text-white transition-all duration-300"/>
       </div>
     </section>
