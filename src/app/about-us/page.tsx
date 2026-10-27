@@ -7,6 +7,14 @@ import Footer from "../components/Footer";
 import { MVSSection } from "./MVSSection";
 import TeamGridSection from "./TeamGridSection";
 import { teamMembers } from "./teamMembers";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  title: "About Us",
+  description: "About the Ministry of Humanitarian Affairs of the Imo State Government: who we are and what we do.",
+  path: "/about-us",
+});
+
 
 export default function AboutUs() {
     return (

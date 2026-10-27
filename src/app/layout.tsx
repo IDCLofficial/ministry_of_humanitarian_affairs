@@ -3,6 +3,11 @@ export const dynamic = "force-dynamic"
 import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "@/app/components/Navbar";
+import type { Metadata } from "next";
+import { buildRootMetadata, jsonLd, organizationJsonLd } from "@/lib/seo";
+
+export const metadata: Metadata = buildRootMetadata();
+
 
 const satoshiFont = localFont({
   src: [
@@ -39,6 +44,7 @@ export default function RootLayout({
       <body
         className={`antialiased ${satoshiFont.className}`}
       >
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(organizationJsonLd) }} />
         <Navbar />
         {children}
       </body>
