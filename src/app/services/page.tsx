@@ -5,8 +5,8 @@ import ServicesSection from "./ServicesSection";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Services",
-  description: "Services offered by the Ministry of Humanitarian Affairs of the Imo State Government.",
+  title: "Social Welfare, Emergency Relief and Disaster Management",
+  description: "Social welfare and protection, humanitarian relief and emergency aid, vulnerable group empowerment, disaster preparedness and rehabilitation services in Imo State.",
   path: "/services",
 });
 
